@@ -1,0 +1,505 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/header"></include>
+
+    <ScrollView
+        android:id="@+id/sc_table"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/ll_header"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/border"
+                android:shrinkColumns="1"
+                android:stretchColumns="1">
+
+
+                <TableRow
+                    android:id="@+id/tr_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Ward  Number "
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/ward_no_tv"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+
+                <TableRow
+                    android:id="@+id/tr_15"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Area  Name"
+                        android:textColor="#000000"
+
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/areaname_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tr_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Category "
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/category_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tr_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Plot Number "
+                        android:textColor="#000000"
+
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/plot_no_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+
+                <TableRow
+                    android:id="@+id/tr_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+
+                        android:layout_width="5dp"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Original Beneficiary Name"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/ob_name_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tr_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_width="5dp"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Father / Husband Name"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/fhn_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tr_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Patta Number"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/patta_no_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tr_11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Current Occupier Name "
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/con_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Father / Husband Name"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/con_f_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tr_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Mobile Number"
+                        android:textColor="#000000"
+
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/mobile_number"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+
+                <TableRow
+                    android:id="@+id/tr_13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Aadhar Number"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/aadhar_no"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/grievance_des"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Biometric Survey Number"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/bio_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=" "
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/grievance_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Door Number"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/door_no_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=" "
+                        android:textColor="#ff0000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/grievance_Remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Ration Card Number"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/ration_no_tv"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=" "
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/grievance_phot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Patta Photo Copy "
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/patta_img_copy"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/grievance_file2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Bank Load Paid Receipt"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/bankloan_img_copy"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/grievance_file3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Photo Of The House"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/house_img_copy"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/grievance_file4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Applicant Family Photo"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/app_family_img"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp" />
+                </TableRow>
+
+            </TableLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "864892212570",
+    "firebase_url": "https://vmcvambay.firebaseio.com",
+    "project_id": "vmcvambay",
+    "storage_bucket": "vmcvambay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864892212570:android:9604531c24f9bfb9",
+        "android_client_info": {
+          "package_name": "m.srinivas.vmcvambay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864892212570-ghe2shcpgugknbeern8646jqossa1vmu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "m.srinivas.vmcvambay",
+            "certificate_hash": "4fe558ed438edd409d3c38b0a8cb4fad6a1e2558"
+          }
+        },
+        {
+          "client_id": "864892212570-rmainhqvo1jf128934fudg93v5r9h86u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1CBfDHXrJ4Xa5UL3LESMbxC_b9EPMNv0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864892212570-rmainhqvo1jf128934fudg93v5r9h86u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
