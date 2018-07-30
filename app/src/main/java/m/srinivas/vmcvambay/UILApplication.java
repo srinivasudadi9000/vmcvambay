@@ -1,6 +1,9 @@
 package m.srinivas.vmcvambay;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 import android.app.Application;
 import android.content.Context;
 import android.os.Build;
@@ -10,6 +13,10 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 public class UILApplication extends Application {
 
     @Override

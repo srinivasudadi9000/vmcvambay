@@ -1,6 +1,5 @@
 package m.srinivas.vmcvambay;
 
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -31,18 +30,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class DashboardView extends Activity implements View.OnClickListener {
-    RecyclerView recyler_dashboard;
+public class DashboardView extends Activity implements View.OnClickListener{
+RecyclerView recyler_dashboard;
     ArrayList<Drilldown> drilldowns;
     RecyclerView dashboardDril_list;
     ImageView back_img;
-    TextView header_tv, displaycount;
-
+    TextView header_tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_view);
-        displaycount = (TextView) findViewById(R.id.displaycount);
         back_img = (ImageView) findViewById(R.id.back_img);
         header_tv = (TextView) findViewById(R.id.header_tv);
         header_tv.setText("Vambay Colony Plots List");
@@ -54,12 +51,12 @@ public class DashboardView extends Activity implements View.OnClickListener {
         drilldowns = new ArrayList<Drilldown>();
         recyler_dashboard.addOnItemTouchListener(new DrawerItemClickListener());
         SharedPreferences sharedPreferences = getSharedPreferences("Userinfo", MODE_PRIVATE);
-        if (internet()) {
+        if (internet()){
             // Toast.makeText(getBaseContext(),"internet connected",Toast.LENGTH_SHORT).show();
             new DashboardView.getstatus(sharedPreferences.getString("intofficerid", null)).execute();
 
-        } else {
-            showDialog(DashboardView.this, "Please Check Your Internet Connection...!!", "not");
+        }else {
+            showDialog(DashboardView.this,"Please Check Your Internet Connection...!!","not");
         }
 
         back_img.setOnClickListener(new View.OnClickListener() {
@@ -70,20 +67,9 @@ public class DashboardView extends Activity implements View.OnClickListener {
         });
     }
 
-    private void startCountAnimation(int size) {
-        ValueAnimator animator = ValueAnimator.ofInt(0, size);
-        animator.setDuration(3000);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                displaycount.setText(animation.getAnimatedValue().toString());
-            }
-        });
-        animator.start();
-    }
-
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
+        switch (v.getId()){
             case R.id.back_img:
                 finish();
                 break;
@@ -97,23 +83,21 @@ public class DashboardView extends Activity implements View.OnClickListener {
     private class DrawerItemClickListener implements RecyclerView.OnItemTouchListener {
         GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
 
-            @Override
-            public boolean onSingleTapUp(MotionEvent e) {
+            @Override public boolean onSingleTapUp(MotionEvent e) {
                 return true;
             }
 
         });
-
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
             View child = rv.findChildViewUnder(e.getX(), e.getY());
-            if (child != null && gestureDetector.onTouchEvent(e)) {
+            if(child != null && gestureDetector.onTouchEvent(e)) {
                 int position = rv.getChildAdapterPosition(child);
                 //  Toast.makeText(getBaseContext(),drilldowns.get(position).getApplicationno(),Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(DashboardView.this, ViewPlot.class);
-                i.putExtra("intregid", drilldowns.get(position).getIntRegid().toString());
+                Intent i = new Intent(DashboardView.this,ViewPlot.class);
+                 i.putExtra("intregid",drilldowns.get(position).getIntRegid().toString());
                 startActivity(i);
-                // finish();
+               // finish();
 
             }
             return false;
@@ -148,8 +132,8 @@ public class DashboardView extends Activity implements View.OnClickListener {
         @Override
         protected JSONObject doInBackground(String... arg0) {
             nameValuePairs = new ArrayList<NameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("intOfficerid", id));
-            // nameValuePairs.add(new BasicNameValuePair("stage", stage));
+            nameValuePairs.add(new BasicNameValuePair("intOfficerid", "1000"));
+           // nameValuePairs.add(new BasicNameValuePair("stage", stage));
             json = JSONParser.makeServiceCall("http://104.217.254.77/BZAVC/ViewVambayDetailsService.aspx", 1, nameValuePairs);
 
             return json;
@@ -160,32 +144,30 @@ public class DashboardView extends Activity implements View.OnClickListener {
             // Toast.makeText(getApplicationContext(), json.toString(), Toast.LENGTH_SHORT).show();
             //  progress.dismiss();
             try {
-                if (json.getString("status").equals("1")) {
+                if (json.getString("status").equals("1")){
                     JSONArray jsonObject = json.getJSONArray("result");
                     for (int i = 0; i < jsonObject.length(); i++) {
                         JSONObject value = jsonObject.getJSONObject(i);
                         String xx = String.valueOf(jsonObject.length());
                         //  Toast.makeText(getApplicationContext(), xx.toString(), Toast.LENGTH_SHORT).show();
 
-                        drilldowns.add(new Drilldown(value.getString("RegNo"), value.getString("intRegid"),
-                                value.getString("Areaname"), value.getString("Sector"),
-                                value.getString("PlotNumber"), value.getString("OriginalName"),
+                        drilldowns.add(new Drilldown(value.getString("RegNo"),value.getString("intRegid"),
+                                value.getString("Areaname"),value.getString("Sector"),
+                                value.getString("PlotNumber"),value.getString("OriginalName"),
                                 value.getString("CurrentName")));
 
                     }
-                    RecyclerView.Adapter adapter = new DrilldownRecycler(drilldowns, DashboardView.this);
+                    RecyclerView.Adapter adapter = new DrilldownRecycler(drilldowns,DashboardView.this);
                     recyler_dashboard.setAdapter(adapter);
-                    startCountAnimation(drilldowns.size());
-                } else {
-                    showDialog(DashboardView.this, "Server Busy At This Moment !!", "no");
+                }else {
+                    showDialog(DashboardView.this,"Server Busy At This Moment !!","no");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                showDialog(DashboardView.this, "Server Busy At This Moment !!", "no");
+                showDialog(DashboardView.this,"Server Busy At This Moment !!","no");
             }
         }
     }
-
     public void showDialog(Activity activity, String msg, final String status) {
         final Dialog dialog = new Dialog(activity, R.style.PauseDialog);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -215,20 +197,19 @@ public class DashboardView extends Activity implements View.OnClickListener {
         dialog.show();
 
     }
-
-    public Boolean internet() {
+    public Boolean internet(){
         boolean connected = false;
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
             //we are connected to a network
             connected = true;
-        } else
+        }
+        else
             connected = false;
 
         return connected;
     }
-
     private void clearPreferences() {
         try {
             // clearing app data
