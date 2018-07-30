@@ -7,11 +7,32 @@
     tools:context="m.srinivas.vmcvambay.DashboardView">
    <include
        layout="@layout/header"></include>
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_marginBottom="2dp"
+            android:id="@+id/displaycount"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/recyler_dashboard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="85dp">
 
-    </android.support.v7.widget.RecyclerView>
-</RelativeLayout>
+    </android.support.v7.widget.RecyclerView></RelativeLayout>

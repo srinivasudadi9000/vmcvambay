@@ -275,7 +275,7 @@ public class Plotsurvey extends Activity implements View.OnClickListener {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject value = jsonArray.getJSONObject(i);
                         if (value.getString("CreateEvent").equals("success")) {
-                            showDialog(Plotsurvey.this, "Successfully Grievance Record Updated ", "yes");
+                            showDialog(Plotsurvey.this, "Successfully plot survey details updated  ", "yes");
                         }
                     }
 
@@ -348,7 +348,9 @@ public class Plotsurvey extends Activity implements View.OnClickListener {
                 data.put("RationCardNo", ration_no.getText().toString());
                 data.put("GLatitude", latitude);
                 data.put("GLangitude", longitude);
-                data.put("intOfficerid", "1000");
+                SharedPreferences sharedPreferences = getSharedPreferences("Userinfo", MODE_PRIVATE);
+
+                data.put("intOfficerid", sharedPreferences.getString("intofficerid", null));
                 data.put("PattaFileName", "PattaFileName");
                 data.put("PattaFilePath", uploadImage1);
                 data.put("BankLoanPaidName", "BankLoanPaidName");

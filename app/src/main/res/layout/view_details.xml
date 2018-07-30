@@ -30,6 +30,32 @@
                 android:shrinkColumns="1"
                 android:stretchColumns="1">
 
+                <TableRow
+                    android:id="@+id/tr_91"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:padding="8dp"
+                        android:text="Registration Number "
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/officerid_tv"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textSize="14dp"
+                        android:textStyle="normal" />
+                </TableRow>
 
                 <TableRow
                     android:id="@+id/tr_9"
@@ -421,6 +447,8 @@
                         android:textSize="14dp" />
 
                     <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/patta_img_copy"
                         android:layout_weight="1.2"
                         android:background="@drawable/border"
@@ -443,6 +471,8 @@
                         android:textSize="14dp" />
 
                     <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/bankloan_img_copy"
                         android:layout_weight="1.2"
                         android:background="@drawable/border"
@@ -465,6 +495,8 @@
                         android:textSize="14dp" />
 
                     <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/house_img_copy"
                         android:layout_weight="1.2"
                         android:background="@drawable/border"
@@ -486,6 +518,8 @@
                         android:textSize="14dp" />
 
                     <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/app_family_img"
                         android:layout_weight="1.2"
                         android:background="@drawable/border"
