@@ -132,7 +132,7 @@ RecyclerView recyler_dashboard;
         @Override
         protected JSONObject doInBackground(String... arg0) {
             nameValuePairs = new ArrayList<NameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("intOfficerid", "1000"));
+            nameValuePairs.add(new BasicNameValuePair("intOfficerid", id));
            // nameValuePairs.add(new BasicNameValuePair("stage", stage));
             json = JSONParser.makeServiceCall("http://104.217.254.77/BZAVC/ViewVambayDetailsService.aspx", 1, nameValuePairs);
 
