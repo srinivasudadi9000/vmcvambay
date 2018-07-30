@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -16,6 +17,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.NameValuePair;
@@ -31,12 +35,22 @@ public class ViewPlot extends Activity {
     TextView ration_no_tv, door_no_tv, bio_tv, aadhar_no, mobile_number, con_f_tv, con_tv, patta_no_tv, fhn_tv,
             ob_name_tv, plot_no_tv, category_tv, areaname_tv, ward_no_tv,header_tv;
     ProgressDialog progress;
-
+    private DisplayImageOptions options;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_details);
 
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.mipmap.ic_launcher_round)
+                .showImageForEmptyUri(R.drawable.clear)
+                .showImageOnFail(R.drawable.dummy)
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .considerExifParams(true)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .displayer(new RoundedBitmapDisplayer(20))
+                .build();
         ration_no_tv = (TextView) findViewById(R.id.ration_no_tv);
         door_no_tv = (TextView) findViewById(R.id.door_no_tv);
         bio_tv = (TextView) findViewById(R.id.bio_tv);
@@ -134,7 +148,20 @@ public class ViewPlot extends Activity {
                         ward_no_tv.setText(value.getString("WardNo"));
                         bio_tv.setText(value.getString("BSurveyID"));
 
-                        Picasso.with(ViewPlot.this)
+                        ImageLoader.getInstance()
+                                .displayImage( value.getString("HouseFile")
+                                        , house_img_copy, options);
+                        ImageLoader.getInstance()
+                                .displayImage(value.getString("BankLoan")
+                                        , bankloan_img_copy, options);
+                        ImageLoader.getInstance()
+                                .displayImage( value.getString("Patta")
+                                        , patta_img_copy, options);
+                        ImageLoader.getInstance()
+                                .displayImage(value.getString("House File")
+                                        , app_family_img, options);
+
+                      /*  Picasso.with(ViewPlot.this)
                                 .load("http://" + value.getString("HouseFile"))
                                 .resize(100, 100)
                                 //this is also optional if some error has occurred in downloading the image this image would be displayed
@@ -153,7 +180,7 @@ public class ViewPlot extends Activity {
                                 .load("http://" + value.getString("House File"))
                                 .resize(100, 100)
                                 //this is also optional if some error has occurred in downloading the image this image would be displayed
-                                .into(app_family_img);
+                                .into(app_family_img);*/
 
 
 

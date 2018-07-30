@@ -421,6 +421,8 @@
                         android:textSize="14dp" />
 
                     <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/patta_img_copy"
                         android:layout_weight="1.2"
                         android:background="@drawable/border"
@@ -443,6 +445,8 @@
                         android:textSize="14dp" />
 
                     <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/bankloan_img_copy"
                         android:layout_weight="1.2"
                         android:background="@drawable/border"
@@ -465,6 +469,8 @@
                         android:textSize="14dp" />
 
                     <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/house_img_copy"
                         android:layout_weight="1.2"
                         android:background="@drawable/border"
@@ -486,6 +492,8 @@
                         android:textSize="14dp" />
 
                     <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/app_family_img"
                         android:layout_weight="1.2"
                         android:background="@drawable/border"

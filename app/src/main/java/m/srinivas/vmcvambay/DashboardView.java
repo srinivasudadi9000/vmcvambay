@@ -1,5 +1,6 @@
 package m.srinivas.vmcvambay;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -35,12 +36,13 @@ RecyclerView recyler_dashboard;
     ArrayList<Drilldown> drilldowns;
     RecyclerView dashboardDril_list;
     ImageView back_img;
-    TextView header_tv;
+    TextView header_tv,displaycount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_view);
         back_img = (ImageView) findViewById(R.id.back_img);
+        displaycount = (TextView) findViewById(R.id.displaycount);
         header_tv = (TextView) findViewById(R.id.header_tv);
         header_tv.setText("Vambay Colony Plots List");
         recyler_dashboard = (RecyclerView) findViewById(R.id.recyler_dashboard);
@@ -114,6 +116,19 @@ RecyclerView recyler_dashboard;
         }
     }
 
+    private void startCountAnimation(int size) {
+        ValueAnimator animator = ValueAnimator.ofInt(0, size);
+        animator.setDuration(5000);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                displaycount.setText(animation.getAnimatedValue().toString());
+            }
+        });
+        animator.start();
+    }
+
+
+
     private class getstatus extends AsyncTask<String, String, JSONObject> {
 
         private ProgressDialog pDialog;
@@ -132,7 +147,7 @@ RecyclerView recyler_dashboard;
         @Override
         protected JSONObject doInBackground(String... arg0) {
             nameValuePairs = new ArrayList<NameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("intOfficerid", "1000"));
+            nameValuePairs.add(new BasicNameValuePair("intOfficerid", id));
            // nameValuePairs.add(new BasicNameValuePair("stage", stage));
             json = JSONParser.makeServiceCall("http://104.217.254.77/BZAVC/ViewVambayDetailsService.aspx", 1, nameValuePairs);
 
@@ -159,8 +174,9 @@ RecyclerView recyler_dashboard;
                     }
                     RecyclerView.Adapter adapter = new DrilldownRecycler(drilldowns,DashboardView.this);
                     recyler_dashboard.setAdapter(adapter);
+                    startCountAnimation(drilldowns.size());
                 }else {
-                    showDialog(DashboardView.this,"Server Busy At This Moment !!","no");
+                    showDialog(DashboardView.this,"Sorry !! Don't Have Any Plots","no");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
