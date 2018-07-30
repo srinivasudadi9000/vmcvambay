@@ -1,5 +1,6 @@
 package m.srinivas.vmcvambay;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -35,12 +36,13 @@ RecyclerView recyler_dashboard;
     ArrayList<Drilldown> drilldowns;
     RecyclerView dashboardDril_list;
     ImageView back_img;
-    TextView header_tv;
+    TextView header_tv,count_tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_view);
         back_img = (ImageView) findViewById(R.id.back_img);
+        count_tv = (TextView) findViewById(R.id.count_tv);
         header_tv = (TextView) findViewById(R.id.header_tv);
         header_tv.setText("Vambay Colony Plots List");
         recyler_dashboard = (RecyclerView) findViewById(R.id.recyler_dashboard);
@@ -159,6 +161,7 @@ RecyclerView recyler_dashboard;
                     }
                     RecyclerView.Adapter adapter = new DrilldownRecycler(drilldowns,DashboardView.this);
                     recyler_dashboard.setAdapter(adapter);
+                    startCountAnimation(drilldowns.size());
                 }else {
                     showDialog(DashboardView.this,"Server Busy At This Moment !!","no");
                 }
@@ -196,6 +199,16 @@ RecyclerView recyler_dashboard;
         });
         dialog.show();
 
+    }
+    private void startCountAnimation(int count) {
+        ValueAnimator animator = ValueAnimator.ofInt(0, count);
+        animator.setDuration(2000);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                count_tv.setText(animation.getAnimatedValue().toString());
+            }
+        });
+        animator.start();
     }
     public Boolean internet(){
         boolean connected = false;

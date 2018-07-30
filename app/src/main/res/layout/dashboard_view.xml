@@ -7,8 +7,21 @@
     tools:context="m.srinivas.vmcvambay.DashboardView">
    <include
        layout="@layout/header"></include>
-    <android.support.v7.widget.RecyclerView
+    <TextView
         android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:id="@+id/count_tv"
+        android:text="0"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp" />
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="85dp"
         android:id="@+id/recyler_dashboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
