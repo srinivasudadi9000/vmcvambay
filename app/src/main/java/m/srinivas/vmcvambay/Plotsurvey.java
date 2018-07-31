@@ -100,10 +100,10 @@ public class Plotsurvey extends Activity implements View.OnClickListener {
         biometric_no = (EditText) findViewById(R.id.biometric_no);
         door_no = (EditText) findViewById(R.id.door_no);
         ration_no = (EditText) findViewById(R.id.ration_no);
-        Log.d("helloooo",ss.getString("status",""));
-        if (ss.getString("status","").equals("true")){
+        Log.d("helloooo", ss.getString("status", ""));
+        if (ss.getString("status", "").equals("true")) {
 
-        }else {
+        } else {
             Intent notallow = new Intent(Plotsurvey.this, AllowError.class);
             startActivity(notallow);
             finish();
@@ -537,12 +537,18 @@ public class Plotsurvey extends Activity implements View.OnClickListener {
                     showDialog(this, "Current Father / Husband Name Should Not Be Empty", "no");
                 } else if (aadharno.getText().toString().length() == 0) {
                     showDialog(this, "Aadhar Number Should Not Be Empty", "no");
+                } else if (aadharno.getText().toString().length() < 12) {
+                    showDialog(this, "Enter Vald Aadhar Number", "no");
                 } else if (mobile_no.getText().toString().length() == 0) {
                     showDialog(this, "Mobile Number Should Not Be Empty", "no");
+                } else if (mobile_no.getText().toString().length() < 10) {
+                    showDialog(this, "Enter Valid Mobile Number ", "no");
                 } else if (door_no.getText().toString().length() == 0) {
                     showDialog(this, "Door Number Should Not Be Empty", "no");
                 } else if (ration_no.getText().toString().length() == 0) {
                     showDialog(this, "Ration Card Number Should Not Be Empty", "no");
+                } else if (ration_no.getText().toString().length() < 10) {
+                    showDialog(this, "Enter Vald Ration Card Number", "no");
                 } else if (scaledBitmap == null) {
                     showDialog(this, "Please Take Patta Photo Copy", "no");
                 } else if (scaledBitmap2 == null) {
